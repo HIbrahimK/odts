@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PermissionsController;
@@ -39,3 +40,5 @@ Route::group(['middleware' => ['auth', 'permission']], function(){
     Route::post('results.import', [\App\Http\Controllers\ResultController::class, 'import'])->name('results.import');
 
 });
+Route::post('api/fetch-state',[RegisterController::class,'fatchState']);
+Route::post('api/fetch-cities',[RegisterController::class,'fatchCity']);

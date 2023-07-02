@@ -105,7 +105,7 @@ class UsersController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'email' => 'required|email:rfc,dns|unique:users,email,'.$user->id,
+            'email' => 'required'
         ]);
 
         $user->update($request->all());

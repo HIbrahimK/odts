@@ -46,14 +46,7 @@
                                         </button>
                                     </div>
                                     <div class="line"></div>
-                                    <div class="step" data-target="#information-part3">
-                                        <button type="button" class="step-trigger" role="tab"
-                                                aria-controls="information-part3" id="information-part-trigger3"
-                                                aria-selected="false" disabled="disabled">
-                                            <span class="bs-stepper-circle">4</span>
-                                            <span class="bs-stepper-label">Ek Bilgileri Girin</span>
-                                        </button>
-                                    </div>
+
                                 </div>
                                 <div class="bs-stepper-content">
 
@@ -68,7 +61,11 @@
                                                 @endforeach
                                             </select>
                                         </div>
+                                        <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+                                        <div class="form-group  text-right">
                                         <button class="btn btn-primary" onclick="stepper.next()">İleri</button>
+                                        </div>
 
                                     </div>
 
@@ -100,33 +97,25 @@
                                         @include('Tests.Tests.ayttablo')
 
                                         <hr style="height:2px;border-width:0;color:gray;background-color:gray">
-
+                                        <div class="form-group  text-right">
                                         <button class="btn btn-primary" onclick="stepper.previous()">Geri</button>
                                         <button class="btn btn-primary" onclick="stepper.next()">İleri</button>
+                                        </div>
                                 </div>
 
 
                                     <div id="information-part2" class="content" role="tabpanel"
                                          aria-labelledby="information-part-trigger">
-                                        <div class="form-group">
-                                            sayfa 3
-
+                                        @include('Tests.Results.ekbilgiler')
+                                        <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+                                        <div class="form-group  text-right">
                                             <button class="btn btn-primary" onclick="stepper.previous()">Geri</button>
-                                            <button class="btn btn-primary" onclick="stepper.next()">İleri</button>
+                                            <button type="submit" class="btn btn-primary">Kaydet</button>
 
                                         </div>
                                     </div>
 
-                                    <div id="information-part3" class="content" role="tabpanel"
-                                         aria-labelledby="information-part-trigger2">
-                                        <div class="form-group">
-                                            <div class="card-body">
-                                                ek bilgiler formu buraya gelecek
-                                            </div>
-                                        </div>
-                                        <button class="btn btn-primary" onclick="stepper.previous()">Geri</button>
-                                        <button type="submit" class="btn btn-primary">Kaydet</button>
-                                    </div>
+
 
                                 </div>
 
@@ -173,20 +162,19 @@
                     fixedColumns: true
                 });
                 $('#upload').on('click', function() {
-                    var fileInput = $('#file-input')[0];
-                    var file = fileInput.files[0];
-                    var formData = new FormData();
-                    formData.append('file', file);
+
                     $.ajax({
                         url: '{{ route('results.import') }}',
                         type: 'POST',
-                        data: formData,
+                            data: [0],
                         async: false,
                         cache: false,
                         contentType: false,
                         processData: false,
                         success: function(response) {
-                            $('.table-responsive').html(response);
+                            $("#myTable").DataTable().ajax.reload();
+
+                           // $('.table-responsive').html(response);
                             console.log('yükleme tamam');
                         }
                     });

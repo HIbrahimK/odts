@@ -3,7 +3,6 @@
     <div class="table-responsive" id="table-responsive">
         Test2
 
-        @if(!empty($data))
 
         <table id="myTable">
             <thead>
@@ -16,6 +15,8 @@
             </tr>
             </thead>
             <tbody>
+            @if(!empty($data))
+
                 <?php $uniqueValues[] = [] ?>
             @foreach($data as $row)
                 @if(in_array($row[0], $uniqueValues) || $row[0] == 0)
@@ -36,9 +37,10 @@
 
                     </tr>
                     @endforeach
+                @endif
+
             </tbody>
         </table>
-        @endif
     </div>
 
 

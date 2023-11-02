@@ -42,26 +42,99 @@
         </div>
 
     </div>
-    <div class="card col-lg-4 m-3">
+</div>
+<div class="card-group">
+    <div class="card col-lg-4 m-2">
         <div class="card-header bg-gradient-blue">
-            Ders Ortalamaları
+            Türkçe Genel Ortalama
         </div>
         <div class="card-body">
             <div class="form-group">
-                <label for="turkce-ortalama" class="form-label">Genel Katılım Sayısı</label>
+                <label for="turkce-dogru" class="form-label">Doğru</label>
                 <input type="number" class="form-control" id="genel-katilim">
-                <label for="il-katilim" class="form-label">İl Katılım Sayısı</label>
+                <label for="turkce-yanlis" class="form-label">Yanlış</label>
                 <input type="number" class="form-control" id="il-katilim">
-                <label for="ilce-katilim" class="form-label">İlçe Katılım Sayısı</label>
+                <label for="turkce-net" class="form-label">Net</label>
                 <input type="number" class="form-control" id="ilce-katilim">
-                <label for="okul-katilim" class="form-label">Okul Katılım Sayısı</label>
-                <input type="number" class="form-control" id="okul-katilim">
-
-
             </div>
-
         </div>
-
     </div>
+    <div class="card col-lg-4 m-2">
+        <div class="card-header bg-gradient-blue">
+            Matematik Genel Ortalama
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+                <label for="turkce-dogru" class="form-label">Doğru</label>
+                <input type="number" class="form-control" id="genel-katilim">
+                <label for="turkce-yanlis" class="form-label">Yanlış</label>
+                <input type="number" class="form-control" id="il-katilim">
+                <label for="turkce-net" class="form-label">Net</label>
+                <input type="number" class="form-control" id="ilce-katilim">
+            </div>
+        </div>
+    </div>
+    <div class="card col-lg-4 m-2">
+        <div class="card-header bg-gradient-blue">
+            Fen Genel Ortalama
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+                <label for="turkce-dogru" class="form-label">Doğru</label>
+                <input type="number" class="form-control" id="genel-katilim">
+                <label for="turkce-yanlis" class="form-label">Yanlış</label>
+                <input type="number" class="form-control" id="il-katilim">
+                <label for="turkce-net" class="form-label">Net</label>
+                <input type="number" class="form-control" id="ilce-katilim">
+            </div>
+        </div>
+    </div>
+    <div class="card col-lg-4 m-2">
+        <div class="card-header bg-gradient-blue">
+            Sosyal Genel Ortalama
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+                <label for="turkce-dogru" class="form-label">Doğru</label>
+                <input type="number" class="form-control" id="genel-katilim">
+                <label for="turkce-yanlis" class="form-label">Yanlış</label>
+                <input type="number" class="form-control" id="il-katilim">
+                <label for="turkce-net" class="form-label">Net</label>
+                <input type="number" class="form-control" id="ilce-katilim">
+            </div>
+        </div>
+    </div>
+    <div class="card col-lg-4 m-2">
+        <div class="card-header bg-gradient-blue">
+            İngilizce Genel Ortalama
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+                <label for="turkce-dogru" class="form-label">Doğru</label>
+                <input type="number" class="form-control" id="genel-katilim">
+                <label for="turkce-yanlis" class="form-label">Yanlış</label>
+                <input type="number" class="form-control" id="il-katilim">
+                <label for="turkce-net" class="form-label">Net</label>
+                <input type="number" class="form-control" id="ilce-katilim">
+            </div>
+        </div>
+    </div>
+    <div class="card col-lg-4 m-2">
+        <div class="card-header bg-gradient-blue">
+            Din kültürü Genel Ortalama
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+                <label for="turkce-dogru" class="form-label">Doğru</label>
+                <input type="number" class="form-control" id="genel-katilim">
+                <label for="turkce-yanlis" class="form-label">Yanlış</label>
+                <input type="number" class="form-control" id="il-katilim">
+                <label for="turkce-net" class="form-label">Net</label>
+                <input type="number" class="form-control" id="ilce-katilim">
+            </div>
+        </div>
+    </div>
+
+
 
 </div>

@@ -15,115 +15,31 @@
                         <div class="card-header">
                             <h3 class="card-title">SONUÇ YÜKLEME</h3>
                         </div>
-                        <div class="card-body p-0">
-                            <div class="bs-stepper linear">
-                                <div class="bs-stepper-header" role="tablist">
-
-                                    <div class="step active" data-target="#deneme-sec">
-                                        <button type="button" class="step-trigger" role="tab"
-                                                aria-controls="logins-part" id="logins-part-trigger"
-                                                aria-selected="true">
-                                            <span class="bs-stepper-circle">1</span>
-                                            <span class="bs-stepper-label">Deneme Seç</span>
-                                        </button>
+                        <div class="col-9">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">
+                                        <h5>Deneme Listesi</h5>
                                     </div>
-                                    <div class="line"></div>
-                                    <div class="step" data-target="#sonuc-yukle">
-                                        <button type="button" class="step-trigger" role="tab"
-                                                aria-controls="information-part" id="information-part-trigger"
-                                                aria-selected="false" disabled="disabled">
-                                            <span class="bs-stepper-circle">2</span>
-                                            <span class="bs-stepper-label">Deneme Sonuçlarını Yükle</span>
-                                        </button>
-                                    </div>
-                                    <div class="line"></div>
-                                    <div class="step" data-target="#information-part2">
-                                        <button type="button" class="step-trigger" role="tab"
-                                                aria-controls="information-part2" id="information-part-trigger2"
-                                                aria-selected="false" disabled="disabled">
-                                            <span class="bs-stepper-circle">3</span>
-                                            <span class="bs-stepper-label">Düzenleme Yapın</span>
-                                        </button>
-                                    </div>
-                                    <div class="line"></div>
-
                                 </div>
-                                <div class="bs-stepper-content">
-
-                                    <div id="deneme-sec" class="content active dstepper-block" role="tabpanel"
-                                         aria-labelledby="logins-part-trigger">
-                                        <div class="form-group">
-                                            <label for="test" class="form-label">DENEME SEÇİNİZ</label>
-                                            <select class="form-control select2" id="test"
-                                                    data-placeholder="Deneme Seçiniz" name="test">
-                                                @foreach ($tests as $test)
-                                                    <option value="{{$test->id}}">{{ucfirst($test->name)}}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                        <hr style="height:2px;border-width:0;color:gray;background-color:gray">
-
-                                        <div class="form-group  text-right">
-                                        <button class="btn btn-primary" onclick="stepper.next()">İleri</button>
-                                        </div>
-
+                                <div class="card-body">
+                                    <!--DataTable-->
+                                    <div class="table-responsive">
+                                        <table id="tblData" class="table table-bordered table-striped dataTable dtr-inline">
+                                            <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Deneme Adı</th>
+                                                <th>Deneme Yayını</th>
+                                                <th>Deneme Tarihi</th>
+                                                <th>Seviyesi</th>
+                                                <th>Türü</th>
+                                                <th>Action</th>
+                                            </tr>
+                                            </thead>
+                                        </table>
                                     </div>
-
-                                    <div id="sonuc-yukle" class="content" role="tabpanel"
-                                         aria-labelledby="information-part-trigger">
-
-                                            <div class="card col-5">
-                                                <div class="card-header">Yükleme</div>
-                                                <div class="card-body">
-
-                                                    <div class="col-md-auto">
-                                                        <input type="file" name="file-input" id="file-input"
-                                                               class="form-control float-right  ml-2">
-                                                    </div>
-
-                                                </div>
-                                                <div class="card-footer col-md-auto">
-                                                    <button type="submit" name="upload" id="upload"
-                                                            class="btn float-right btn-success ml-2">
-                                                        <i class="fas fa-upload"></i> Excelden Yazılar Yükle
-                                                    </button>
-                                                    @if($errors->has('file'))
-                                                        <span class="text-danger">{{$errors->first('file')}}</span>
-                                                    @endif
-                                                </div>
-                                            </div>
-
-
-                                        @include('Tests.Tests.ayttablo')
-
-                                        <hr style="height:2px;border-width:0;color:gray;background-color:gray">
-                                        <div class="form-group  text-right">
-                                        <button class="btn btn-primary" onclick="stepper.previous()">Geri</button>
-                                        <button class="btn btn-primary" onclick="stepper.next()">İleri</button>
-                                        </div>
                                 </div>
-
-
-                                    <div id="information-part2" class="content" role="tabpanel"
-                                         aria-labelledby="information-part-trigger">
-                                        @include('Tests.Results.ekbilgiler')
-                                        <hr style="height:2px;border-width:0;color:gray;background-color:gray">
-                                        <div class="form-group  text-right">
-                                            <button class="btn btn-primary" onclick="stepper.previous()">Geri</button>
-                                            <button type="submit" class="btn btn-primary">Kaydet</button>
-
-                                        </div>
-                                    </div>
-
-
-
-                                </div>
-
-                            </div>
-
-                            <div class="card-footer">
-                                <a href="https://github.com/Johann-S/bs-stepper/#how-to-use-it">Sınav Yükleme
-                                    Şablonuna İndirin</a> Deneme Yükleme Videosu İzleyin.
                             </div>
                         </div>
 
@@ -138,44 +54,50 @@
         @stop
 
         @section('js')
-
-            <script> // BS-Stepper Init
-                document.addEventListener('DOMContentLoaded', function () {
-                    window.stepper = new Stepper(document.querySelector('.bs-stepper'))
-                })
-                $("#select2-select2-container").css('color', 'green');
-
+            <script>
+                $(function (){
+                    $('#select2').select2();
+                });
                 $.ajaxSetup({
                     headers:{
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     }
                 })
-                $('#myTable').DataTable({
-                    reponsive:false, processing:true, serverSide:false,autoWidth:true, bPaginate:false,
-                    scrollY:        "500px",
-                    scrollX:        true,
-                    scrollCollapse: true,
-                    searching:false,
-                    columnDefs: [
-                        { width: '20%', targets: 0 }
-                    ],
-                    fixedColumns: true
-                });
-                $('#upload').on('click', function() {
-
-                    $.ajax({
-                        url: '{{ route('results.import') }}',
-                        type: 'POST',
-                            data: [0],
-                        async: false,
-                        cache: false,
-                        contentType: false,
-                        processData: false,
-                        success: function(response) {
-                            $("#myTable").DataTable().ajax.reload();
-
-                           // $('.table-responsive').html(response);
-                            console.log('yükleme tamam');
+                $(document).ready(function(){
+                    var table = $('#tblData').DataTable({
+                        reponsive:true, processing:true, serverSide:true, autoWidth:false,
+                        ajax:"{{route('results.index')}}",
+                        columns:[
+                            {data:'id', name:'id', visible:false},
+                            {data:'name', name:'name'},
+                            {data:'publisher', name:'publisher'},
+                            {data:'test_date', name:'test_date'},
+                            {data:'level', name:'level'},
+                            {data:'type', name:'type'},
+                            {data:'action', name:'action', bSortable:false, className:"text-center"},
+                        ],
+                        order:[[0, "desc"]]
+                    });
+                    $('body').on('click', '#btnDel', function(){
+                        //confirmation
+                        var id = $(this).data('id');
+                        if(confirm('Delete Data '+id+'?')==true)
+                        {
+                            var route = "{{route('tests.destroy', ':id')}}";
+                            route = route.replace(':id', id);
+                            $.ajax({
+                                url:route,
+                                type:"delete",
+                                success:function(res){
+                                    console.log(res);
+                                    $("#tblData").DataTable().ajax.reload();
+                                },
+                                error:function(res){
+                                    $('#errorBox').html('<div class="alert alert-dander">'+response.message+'</div>');
+                                }
+                            });
+                        }else{
+                            //do nothing
                         }
                     });
                 });
@@ -183,6 +105,8 @@
 
 
             </script>
+
+
 @stop
 @section('plugins.bs-stepper', true)
 @section('plugins.Datatables', true)

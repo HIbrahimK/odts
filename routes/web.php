@@ -38,6 +38,7 @@ Route::group(['middleware' => ['auth', 'permission']], function(){
     Route::resource('results', \App\Http\Controllers\ResultController::class);
     Route::post('students.import', [\App\Http\Controllers\StudentController::class, 'import'])->name('students.import');
     Route::post('results.import', [\App\Http\Controllers\ResultController::class, 'import'])->name('results.import');
+    Route::post('results.updateSelection', [\App\Http\Controllers\ResultController::class, 'updateSelection'])->name('results.updateSelection');
 
 });
 Route::post('api/fetch-state',[RegisterController::class,'fatchState']);

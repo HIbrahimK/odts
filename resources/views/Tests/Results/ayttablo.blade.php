@@ -26,8 +26,14 @@
 
                       <tr @if($value[0] == 0 ) style="background-color: red;" @endif>
                         @foreach($value as $deger)
-                            <td > <input type="text" value="{{ $deger}}" style='width:100%'  ></td>
-                         @endforeach
+                            @if (strlen($deger)>=5)
+                            <td > <input type="text" value="{{ $deger}}" style='width:100px'  ></td>
+                              @elseif (strlen($deger)>=3)
+                                  <td > <input type="text" value="{{ $deger}}" style='width:60px'  ></td>
+                              @else
+                                  <td > <input type="text" value="{{ $deger}}" style='width:40px'  ></td>
+                                @endif
+                                  @endforeach
                         </tr>
                     @endforeach
 
